@@ -5,5 +5,5 @@ import "net/http"
 func (app *application) routes() http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", app.user)
-	return mux
+	return app.Authorization(mux)
 }
